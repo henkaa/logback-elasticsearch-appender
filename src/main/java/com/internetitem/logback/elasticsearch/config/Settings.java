@@ -23,6 +23,8 @@ public class Settings {
 	private int maxQueueSize = 100 * 1024 * 1024;
 	private Authentication authentication;
 	private int maxMessageSize = -1;
+	private String basicuser = "";
+	private String basicpassword = "";
 
 	public String getIndex() {
 		return index;
@@ -162,4 +164,20 @@ public class Settings {
 	public void setMaxMessageSize(int maxMessageSize) {
 		this.maxMessageSize = maxMessageSize;
 	}
+
+    public String getBasicuser() {
+        return basicuser;
+    }
+
+    public void setBasicuser(String basicuser) {
+        this.basicuser = basicuser;
+    }
+
+    public String getBasicpassword() {
+        return basicpassword;
+    }
+
+    public void setBasicpassword(String basicpassword) {
+        this.basicpassword = basicpassword;
+    }
 }

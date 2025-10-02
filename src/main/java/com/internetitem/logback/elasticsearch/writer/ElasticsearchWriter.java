@@ -70,6 +70,7 @@ public class ElasticsearchWriter implements SafeWriter {
 
 			if (settings.getAuthentication() != null) {
 				settings.getAuthentication().addAuth(urlConnection, body);
+				settings.getAuthentication().addAuth(urlConnection, settings.getBasicuser(), settings.getBasicpassword());
 			}
 
 			Writer writer = new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8");
