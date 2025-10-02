@@ -1,6 +1,5 @@
 package com.internetitem.logback.elasticsearch;
 
-
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Context;
 import com.internetitem.logback.elasticsearch.config.ElasticsearchProperties;
@@ -11,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -100,7 +99,7 @@ public class ElasticsearchAppenderTest {
 
         appender.append(eventToLog);
 
-        verifyZeroInteractions(elasticsearchPublisher);
+        verifyNoInteractions(elasticsearchPublisher);
     }
 
 
@@ -117,7 +116,7 @@ public class ElasticsearchAppenderTest {
 
         appender.append(eventToLog);
 
-        verifyZeroInteractions(elasticsearchPublisher);
+        verifyNoInteractions(elasticsearchPublisher);
     }
 
 
@@ -186,6 +185,8 @@ public class ElasticsearchAppenderTest {
         int aSleepTime = 10000;
         int readTimeout = 10000;
         int connectTimeout = 5000;
+        String basicuser = "foo";
+        String basicpassword = "bar";
 
         appender.setIncludeCallerData(includeCallerData);
         appender.setSleepTime(aSleepTime);
@@ -202,6 +203,8 @@ public class ElasticsearchAppenderTest {
         appender.setConnectTimeout(connectTimeout);
         appender.setRawJsonMessage(rawJsonMessage);
         appender.setIncludeMdc(includeMdc);
+        appender.setBasicuser(basicuser);
+        appender.setBasicpassword(basicpassword);
 
         verify(settings, times(1)).setReadTimeout(readTimeout);
         verify(settings, times(1)).setSleepTime(aSleepTime);
@@ -218,6 +221,9 @@ public class ElasticsearchAppenderTest {
         verify(settings, times(1)).setConnectTimeout(connectTimeout);
         verify(settings, times(1)).setRawJsonMessage(rawJsonMessage);
         verify(settings, times(1)).setIncludeMdc(includeMdc);
+        
+        verify(settings, times(1)).setBasicuser(basicuser);
+        verify(settings, times(1)).setBasicpassword(basicpassword);
     }
 
 
