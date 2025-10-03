@@ -12,9 +12,7 @@ public class ModernBasicAuthentication implements Authentication {
     @Override
     public void addAuth(HttpURLConnection urlConnection, String basicusername, String basicpassword) {
         String userInfo = basicusername + ":" + basicpassword;
-        if (userInfo != null) {
-            String basicAuth = "Basic " + Base64.encode(userInfo.getBytes());
-            urlConnection.setRequestProperty("Authorization", basicAuth);
-        }
+        String basicAuth = "Basic " + Base64.encode(userInfo.getBytes());
+        urlConnection.setRequestProperty("Authorization", basicAuth);
     }
 }

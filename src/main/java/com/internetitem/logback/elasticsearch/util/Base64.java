@@ -2,10 +2,12 @@ package com.internetitem.logback.elasticsearch.util;
 
 import java.io.ByteArrayOutputStream;
 
-public class Base64
-{
-    public static String encode(byte[] data)
-    {
+public class Base64 {
+    private Base64() {
+        // static class
+    }
+    
+    public static String encode(byte[] data) {
         char[] tbl = {
             'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P',
             'Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f',
@@ -41,8 +43,7 @@ public class Base64
         return buffer.toString();
     }
 
-    public static byte[] decode(String data)
-    {
+    public static byte[] decode(String data){
         int[] tbl = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,

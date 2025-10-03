@@ -38,7 +38,7 @@ public class ElasticsearchAppenderTest {
 
     private boolean publisherSet = false;
     private boolean errorReporterSet = false;
-    private AbstractElasticsearchAppender appender;
+    private ElasticsearchAppender appender;
 
     @Before
     public void setUp() {
