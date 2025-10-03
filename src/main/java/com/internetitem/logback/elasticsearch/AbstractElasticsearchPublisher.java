@@ -53,7 +53,7 @@ public abstract class AbstractElasticsearchPublisher<T> implements Runnable {
 
 	public AbstractElasticsearchPublisher(Context context, ErrorReporter errorReporter, Settings settings, ElasticsearchProperties properties, HttpRequestHeaders headers) throws IOException {
 		this.errorReporter = errorReporter;
-		this.events = new ArrayList<T>();
+		this.events = new ArrayList<>();
 		this.lock = new Object();
 		this.settings = settings;
 
@@ -88,7 +88,7 @@ public abstract class AbstractElasticsearchPublisher<T> implements Runnable {
 	}
 
 	private List<AbstractPropertyAndEncoder<T>> generatePropertyList(Context context, ElasticsearchProperties properties) {
-		List<AbstractPropertyAndEncoder<T>> list = new ArrayList<AbstractPropertyAndEncoder<T>>();
+		List<AbstractPropertyAndEncoder<T>> list = new ArrayList<>();
 		if (properties != null) {
 			for (Property property : properties.getProperties()) {
 				list.add(buildPropertyAndEncoder(context, property));
@@ -125,7 +125,7 @@ public abstract class AbstractElasticsearchPublisher<T> implements Runnable {
 				synchronized (lock) {
 					if (!events.isEmpty()) {
 						eventsCopy = events;
-						events = new ArrayList<T>();
+						events = new ArrayList<>();
 						currentTry = 1;
 					}
 

@@ -45,6 +45,11 @@ public class AWSAuthentication implements Authentication {
         signer.sign(new URLConnectionSignableRequest(urlConnection, body), credentials);
     }
 
+    @Override
+    public void addAuth(HttpURLConnection urlConnection, String basicusername, String basicpassword) {
+        // this method does nothing in this implementation
+    }
+
     /**
      * Wrapper for signing a HttpURLConnection
      */

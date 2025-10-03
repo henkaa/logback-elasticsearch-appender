@@ -138,4 +138,12 @@ public abstract class AbstractElasticsearchAppender<T> extends UnsynchronizedApp
     public void setMaxMessageSize(int maxMessageSize) {
     	settings.setMaxMessageSize(maxMessageSize);
 	}
+    
+    public void setBasicuser(String basicuser) {
+        settings.setBasicuser(basicuser);
+    }
+
+    public void setBasicpassword(String basicpassword) {
+        settings.setBasicpassword(basicpassword);
+    }
 }

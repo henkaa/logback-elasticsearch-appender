@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.internetitem</groupId>
+    <groupId>se.henkaa.forks</groupId>
     <artifactId>logback-elasticsearch-appender</artifactId>
     <version>1.7-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Logback Elasticsearch Appender</name>
     <description>Send log events directly from Logback to Elasticsearch</description>
-    <url>https://github.com/internetitem/logback-elasticsearch-appender</url>
+    <url>https://github.com/henkaa/logback-elasticsearch-appender</url>
 
     <licenses>
         <license>
@@ -25,9 +25,9 @@
     </organization>
 
     <scm>
-        <connection>scm:git:https://github.com/internetitem/logback-elasticsearch-appender.git</connection>
-        <developerConnection>scm:git:https://github.com/internetitem/logback-elasticsearch-appender.git</developerConnection>
-        <url>https://github.com/internetitem/logback-elasticsearch-appender</url>
+        <connection>scm:git:https://github.com/henkaa/logback-elasticsearch-appender.git</connection>
+        <developerConnection>scm:git:https://github.com/henkaa/logback-elasticsearch-appender.git</developerConnection>
+        <url>https://github.com/henkaa/logback-elasticsearch-appender</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -36,9 +36,15 @@
             <name>Adam Batkin</name>
             <email>adam@batkin.net</email>
         </developer>
+		<developer>
+			<name>Henrik Andersson</name>
+			<email>henkaaster@gmail.com</email>
+		</developer>
     </developers>
 
     <properties>
+        <global.java.source.version>11</global.java.source.version>
+		<global.java.target.version>11</global.java.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -81,8 +87,8 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.10.19</version>
+            <artifactId>mockito-core</artifactId>
+            <version>5.20.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -104,8 +110,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${global.java.source.version}</source>
+					<target>${global.java.target.version}</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -162,14 +168,17 @@
     </profiles>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+		<repository>
+			<id>katalog-super</id>
+			<name>Cybercom Artifactory Release Repository</name>
+			<url>https://cybercom.jfrog.io/artifactory/katalog-super/</url>
+		</repository>
+		<snapshotRepository>
+			<id>katalog-super-snapshots</id>
+			<name>Cybercom Artifactory Snapshot Repository</name>
+			<url>https://cybercom.jfrog.io/artifactory/katalog-super-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 </project>

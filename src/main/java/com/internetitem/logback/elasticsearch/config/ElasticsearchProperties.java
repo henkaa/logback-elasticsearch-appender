@@ -8,7 +8,7 @@ public class ElasticsearchProperties {
 	private List<Property> properties;
 
 	public ElasticsearchProperties() {
-		this.properties = new ArrayList<Property>();
+		this.properties = new ArrayList<>();
 	}
 
 	public List<Property> getProperties() {

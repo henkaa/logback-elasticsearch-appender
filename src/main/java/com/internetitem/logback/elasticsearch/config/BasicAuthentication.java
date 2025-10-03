@@ -12,4 +12,9 @@ public class BasicAuthentication implements Authentication {
             urlConnection.setRequestProperty("Authorization", basicAuth);
         }
     }
+
+    @Override
+    public void addAuth(HttpURLConnection urlConnection, String basicusername, String basicpassword) {
+        // this method does nothing in this implementation
+    }
 }
